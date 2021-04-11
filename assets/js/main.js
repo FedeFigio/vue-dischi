@@ -33,9 +33,8 @@ let app = new Vue({
                 this.reverses = false
             }
         },
-        filteredContacts() {
+        filteredArtistTitle() {
             if (this.searchArtist == "" && this.searchTitle == "") {
-
                 return this.filteredItems()
             }
             return this.filteredItems().filter((disk) => {

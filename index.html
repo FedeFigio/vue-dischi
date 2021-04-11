@@ -20,7 +20,7 @@
             <input type="text" placeholder="cerca per titolo" v-model="searchTitle">
             <button @click="reverse">{{reverses ? '&LeftArrow;':'&RightArrow;'}}</button>
         </nav>
-        <div class="flip-card" v-for="(disk, index) in filteredContacts()" :key="index">
+        <div class="flip-card" v-for="(disk, index) in filteredArtistTitle()" :key="index">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <img :src="disk.poster" alt="pippo">
@@ -40,7 +40,3 @@
 </body>
 
 </html>
-
-
-
-&LeftArrow;
