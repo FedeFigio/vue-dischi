@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/master.css">
+    <title>Vue Dischi Musicali</title>
+</head>
+
+<body>
+    <div id="root">
+        <nav>
+            <select v-model="selected">
+                <option value="All" selected>All</option>
+                <option :value="genre" v-for="(genre, index) in selectionFilter" :key="index">{{genre}}</option>                
+              </select>
+            <button>></button>
+        </nav>
+        <div class="flip-card" v-for="(disk, index) in filteredItems()" :key="index">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img :src="disk.poster" alt="pippo">
+                </div>
+                <div class="flip-card-back">
+                    <h1>{{disk.title}}</h1>
+                    <p>{{disk.author}}</p>
+                    <p>{{disk.genre}}</p>
+                    <p>{{disk.year}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

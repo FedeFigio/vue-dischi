@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+nav {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+nav button {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#root {
+    position: relative;
+    min-width: 100vw;
+    display: flex;
+    padding: 20px;
+    padding-top: 70px;
+    flex-wrap: wrap;
+    background: linear-gradient(#686868, #a5a5a5);
+    height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 18%;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+}
+
+
+/* This container is needed to position the front and back side */
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* Position the front and back side */
+
+.flip-card-front,
+.flip-card-back {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 9px 0px rgba(0, 0, 0, 0.42);
+    box-shadow: 5px 5px 9px 0px rgba(0, 0, 0, 0.42);
+}
+
+
+/* Style the front side (fallback if image is missing) */
+
+.flip-card-front {
+    color: black;
+    background-size: cover;
+}
+
+
+/* Style the back side */
+
+.flip-card-back {
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    transform: rotateY(180deg);
+    background: linear-gradient(#5f3636, #853434);
+}
