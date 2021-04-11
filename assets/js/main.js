@@ -12,7 +12,9 @@ let app = new Vue({
         disks: [],
         selected: "All",
         selectionFilter: [],
-        reverses: false
+        reverses: false,
+        searchArtist: "",
+        searchTitle: ""
     },
     methods: {
         filteredItems() {
@@ -30,7 +32,23 @@ let app = new Vue({
             } else {
                 this.reverses = false
             }
-        }
+        },
+        filteredContacts() {
+            if (this.searchArtist == "" && this.searchTitle == "") {
+
+                return this.filteredItems()
+            }
+            return this.filteredItems().filter((disk) => {
+                if (this.searchArtist != "") {
+
+                    return disk.author.toLowerCase().includes(this.searchArtist.toLowerCase());
+                }
+                if (this.searchTitle != "") {
+
+                    return disk.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+                }
+            })
+        },
     },
     mounted() {
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")

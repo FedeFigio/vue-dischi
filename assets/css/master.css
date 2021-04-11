@@ -46,6 +46,11 @@ nav button:hover {
     background-color: lightslategray;
 }
 
+nav input {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
 #root {
     position: relative;
     min-width: 100vw;

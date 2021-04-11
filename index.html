@@ -16,9 +16,11 @@
                 <option value="All" selected>All</option>
                 <option :value="genre" v-for="(genre, index) in selectionFilter" :key="index">{{genre}}</option>                
               </select>
+            <input type="text" placeholder="cerca per artista" v-model="searchArtist">
+            <input type="text" placeholder="cerca per titolo" v-model="searchTitle">
             <button @click="reverse">{{reverses ? '&LeftArrow;':'&RightArrow;'}}</button>
         </nav>
-        <div class="flip-card" v-for="(disk, index) in filteredItems()" :key="index">
+        <div class="flip-card" v-for="(disk, index) in filteredContacts()" :key="index">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <img :src="disk.poster" alt="pippo">
