@@ -11,7 +11,8 @@ let app = new Vue({
     data: {
         disks: [],
         selected: "All",
-        selectionFilter: []
+        selectionFilter: [],
+        reverses: false
     },
     methods: {
         filteredItems() {
@@ -19,6 +20,16 @@ let app = new Vue({
                 if (this.selected == "All") return true;
                 return disk.genre == this.selected;
             })
+        },
+        reverse() {
+            this.disks = [
+                ...this.disks.reverse()
+            ]
+            if (this.reverses == false) {
+                this.reverses = true
+            } else {
+                this.reverses = false
+            }
         }
     },
     mounted() {
@@ -40,9 +51,4 @@ let app = new Vue({
                 }
             });
     },
-    watch: {
-        filter(val) {
-            console.log(val);
-        }
-    }
 })

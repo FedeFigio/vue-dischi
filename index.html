@@ -16,7 +16,7 @@
                 <option value="All" selected>All</option>
                 <option :value="genre" v-for="(genre, index) in selectionFilter" :key="index">{{genre}}</option>                
               </select>
-            <button>></button>
+            <button @click="reverse">{{reverses ? '&LeftArrow;':'&RightArrow;'}}</button>
         </nav>
         <div class="flip-card" v-for="(disk, index) in filteredItems()" :key="index">
             <div class="flip-card-inner">
@@ -38,3 +38,7 @@
 </body>
 
 </html>
+
+
+
+&LeftArrow;

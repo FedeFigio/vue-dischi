@@ -42,6 +42,10 @@ nav button {
     border-radius: 5px;
 }
 
+nav button:hover {
+    background-color: lightslategray;
+}
+
 #root {
     position: relative;
     min-width: 100vw;
